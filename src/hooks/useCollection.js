@@ -11,13 +11,14 @@ export const useCollection = (c) => {
     let ref = collection(db, c)
 
     const unsub = onSnapshot(ref, (snapshot) => {
+      console.log('SNAPHOT', snapshot.docs)
       let results = []
       snapshot.docs.forEach((doc) => {
         results.push({ ...doc.data(), id: doc.id })
       })
       setDocuments(results)
     })
-    return unsub()
+    return () => unsub()
   }, [c])
   return { documents }
 }
