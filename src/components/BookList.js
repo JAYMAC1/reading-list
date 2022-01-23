@@ -1,5 +1,5 @@
 import { db } from '../firebase/config'
-import { collection, doc, deleteDoc } from 'firebase/firestore'
+import { doc, deleteDoc } from 'firebase/firestore'
 
 export default function BookList({ books }) {
   const handleClick = async (id) => {
